@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>o7 Portfolio</title>
+  <style>
+    :root {
+      --white: #ffffff;
+      --red: #d90000;
+      --gray: #d9d9d9;
+      --ink: #171717;
+      --muted: #6b6b6b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--white);
+      color: var(--ink);
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .page {
+      width: min(100% - 48px, 1120px);
+      min-height: 100vh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--gray);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    /* Logo image is loaded from Assets/image.png. */
+    .logo-placeholder {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1.5px solid var(--red);
+      border-radius: 50%;
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: -0.06em;
+    }
+
+    .logo-image {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .status::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--red);
+      content: "";
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 0 78px;
+      text-align: center;
+    }
+
+    .image-frame {
+      width: min(100%, 460px);
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--gray);
+      border-radius: 8px;
+      background:
+        linear-gradient(45deg, #f5f5f5 25%, transparent 25%),
+        linear-gradient(-45deg, #f5f5f5 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #f5f5f5 75%),
+        linear-gradient(-45deg, transparent 75%, #f5f5f5 75%);
+      background-color: var(--white);
+      background-size: 24px 24px;
+      background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+    }
+
+    /* Portfolio picture is loaded from Assets/image.png. */
+    .image-placeholder {
+      padding: 24px;
+      color: #777;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .portfolio-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .copy {
+      max-width: 560px;
+      margin-top: 38px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 6vw, 54px);
+      line-height: 1.04;
+      letter-spacing: -0.06em;
+    }
+
+    .description {
+      margin: 16px 0 25px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .design-button,
+    .resume-button {
+      min-width: 142px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border: 1px solid var(--red);
+      border-radius: 4px;
+      background: var(--red);
+      color: var(--white);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .design-button:hover,
+    .resume-button:hover {
+      transform: translateY(-2px);
+      background: var(--white);
+      color: var(--red);
+    }
+
+    .resume-button {
+      border: 1px solid var(--gray);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .design-button span,
+    .resume-button span { font-size: 18px; line-height: 0; }
+
+    footer {
+      padding: 20px 0;
+      border-top: 1px solid var(--gray);
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .page { width: min(100% - 32px, 1120px); }
+      header { padding: 20px 0; }
+      .status { font-size: 10px; }
+      main { padding: 44px 0 56px; }
+      .image-frame { width: min(100%, 360px); }
+      .copy { margin-top: 30px; }
+      .description { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a class="brand" href="#" aria-label="o7 Portfolio home">
+        <img class="logo-image" src="Assets/image.png" alt="o7 Portfolio logo">
+        <span>o7 Portfolio</span>
+      </a>
+      <span class="status">In development</span>
+    </header>
+
+    <main>
+      <div class="image-frame">
+        <img class="portfolio-image" src="Assets/image.png" alt="Portfolio preview">
+      </div>
+
+      <section class="copy" aria-labelledby="page-title">
+        <p class="eyebrow">Coming soon</p>
+        <h1 id="page-title">This website is currently under construction.</h1>
+        <p class="description">You can still access the site design by clicking below.</p>
+        <div class="button-row">
+          <a class="design-button" href="https://drive.google.com/file/d/1X0BGME46VVQJ0KVd9DNItbJx7tRo_QRo/" target="_blank" rel="noopener noreferrer">
+            Design <span aria-hidden="true">↗</span>
+          </a>
+          <a class="resume-button" href="https://drive.google.com/drive/folders/1O8cYV801rIOsMTAPyb-D_YYlKzkriFtD" target="_blank" rel="noopener noreferrer">
+            Resume <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>© <span id="year"></span> o7 Portfolio</footer>
+  </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
